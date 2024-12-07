@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parking Systerm</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="grid-container">
+    <!-- Tạo 32 ô -->
+    <a href="details.html?id=1" class="grid-item" id="item-1">1</a>
+  </div>
+
+  <script>
+    window.onload = function() {
+      // Duyệt qua tất cả các ô và kiểm tra trạng thái
+      for (let i = 1; i <= 32; i++) {
+        const status = localStorage.getItem('status-' + i); // Lấy trạng thái từ localStorage
+        const item = document.getElementById('item-' + i);
+        if (status) {
+          item.classList.add(status); // Thêm lớp trạng thái vào ô
+        }
+  
+        // Kiểm tra và cập nhật dữ liệu đã nhập vào ô (nếu có)
+        const savedData = localStorage.getItem('data-' + i);
+        if (savedData) {
+          item.textContent = savedData;  // Cập nhật văn bản trong ô
+        }
+      }
+    };
+  </script>
+
+</body>
+</html>

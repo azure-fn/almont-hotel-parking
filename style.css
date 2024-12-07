@@ -1,0 +1,110 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+  }
+  
+  /* Định nghĩa container */
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(8, 120px); /* 8 cột */
+    grid-template-rows: repeat(4, 120px);   /* 4 hàng */
+    gap: 10px; /* Khoảng cách giữa các ô */
+  }
+  
+  /* Định nghĩa các ô */
+  .grid-item {
+    text-decoration: none;
+    background-color: #4caf50;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+  
+  .grid-item:hover {
+    background-color: #45a049;
+  }
+
+
+.grid-item.vacant {
+  background-color: green; /* Màu xanh lá cây */
+}
+
+.grid-item.occupied {
+  background-color: blue; /* Màu xanh dương */
+}
+
+.grid-item.temp {
+  background-color: pink; /* Màu hồng */
+}
+
+  .form-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .form-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  .form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .form-container label {
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  .form-container input, 
+  .form-container select, 
+  .form-container button {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .form-container button {
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .form-container button:hover {
+    background-color: #45a049;
+  }
+
+
+  .back-button {
+    padding: 10px 20px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .back-button:hover {
+    background-color: #e53935;
+  }

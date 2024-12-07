@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Details Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="form-container">
+    <h2>Enter Details</h2>
+    <form id="form" onsubmit="saveDetails(event)">
+      <!-- Ô nhập dữ liệu -->
+      <label for="data-input">Enter Data:</label>
+      <input type="text" id="data-input" name="data" placeholder="Enter data here" required>
+
+      <!-- Dropdown chọn trạng thái -->
+      <label for="status-select">Status:</label>
+      <select id="status-select" name="status" required>
+        <option value="vacant">Vacant</option>
+        <option value="occupied">Occupied</option>
+        <option value="temp">Temporary</option>
+      </select>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <!-- Nút quay lại -->
+    <a href="index.html">
+      <button class="back-button">Back</button>
+    </a>
+  </div>
+
+  <script>
+    // Lấy ID ô từ URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const itemId = urlParams.get('id');  // ID của ô, ví dụ "1", "2", "3", ...
+  
+    window.onload = function() {
+      // Lấy thông tin từ localStorage (nếu có)
+      const savedData = localStorage.getItem('data-' + itemId);
+      const savedStatus = localStorage.getItem('status-' + itemId);
+  
+      // Cập nhật form với dữ liệu đã lưu
+      if (savedData) {
+        document.getElementById('data-input').value = savedData;
+      }
+  
+      if (savedStatus) {
+        document.getElementById('status-select').value = savedStatus;
+      }
+    };
+  
+    // Lưu thông tin vào localStorage khi form được submit
+    function saveDetails(event) {
+      event.preventDefault(); // Ngăn chặn việc submit form và tải lại trang
+  
+      const data = document.getElementById('data-input').value;
+      const status = document.getElementById('status-select').value;
+  
+      // Lưu thông tin vào localStorage
+      localStorage.setItem('data-' + itemId, data);
+      localStorage.setItem('status-' + itemId, status);
+  
+      // Quay lại trang index.html
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
